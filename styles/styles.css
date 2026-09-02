@@ -330,7 +330,6 @@ ol {
   overflow-x: auto;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
 
   cursor: grab;
   scrollbar-width: none;
