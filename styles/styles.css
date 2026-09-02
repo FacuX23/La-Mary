@@ -331,17 +331,11 @@ ol {
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
 
-  cursor: grab;
   scrollbar-width: none;
 }
 
 .carousel-track::-webkit-scrollbar {
   display: none;
-}
-
-.carousel-track.dragging {
-  cursor: grabbing;
-  scroll-snap-type: none;
 }
 
 .carousel-item {
