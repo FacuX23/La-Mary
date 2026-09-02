@@ -398,7 +398,6 @@ ol {
   line-height: 1.2;
 }
 
-/* Flechas centradas verticalmente sobre el carrusel */
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -442,7 +441,7 @@ ol {
 
 @media (max-width: 640px) {
   .carousel-item {
-    width: 80vw;
+    width: 80%;
   }
 
   .nav-arrow {
