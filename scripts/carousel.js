@@ -91,7 +91,8 @@
 
   // Soporte para arrastre táctil y con mouse (Drag)
   function onPointerDown(e) {
-    if (e.button !== 0 && e.pointerType === 'mouse') return;
+    if (e.pointerType !== 'mouse') return;
+    if (e.button !== 0) return;
 
     isDown = true;
     moved = false;
