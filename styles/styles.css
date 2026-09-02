@@ -8,6 +8,7 @@ body {
   font-family: var(--font-parrafo);
   background-color: var(--bg-page);
   color: var(--text-apagado);
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
