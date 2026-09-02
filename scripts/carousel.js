@@ -71,16 +71,4 @@
     navigate(1);
   });
 
-  // Navegación con teclado
-  track.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      navigate(1);
-    } else if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      navigate(-1);
-    }
-  });
-
-
 })();
