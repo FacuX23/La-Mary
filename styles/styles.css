@@ -293,9 +293,6 @@ ol {
   max-width: 600px;
 }
 
-/* ============================================
-   SECCIÓN SERVICIOS
-   ============================================ */
 .services-section {
   padding: 6rem 0;
 }
@@ -317,6 +314,7 @@ ol {
   border: 1px solid rgba(125, 139, 112, 0.15);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .service-card:hover {
