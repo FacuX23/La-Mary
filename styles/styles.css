@@ -103,7 +103,6 @@ ol {
     background-color: rgba(244, 243, 239, 0.85);
     backdrop-filter: blur(9px);
     border-radius: 0 0 12px 12px;
-    color: black;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 }
@@ -171,7 +170,7 @@ ol {
   font-family: var(--font-parrafo);
   font-size: 0.95rem;
   font-weight: 500;
-  background: #7d8b70;
+  background: var(--accent);
   color: var(--text-white);
   padding: 0.5rem 1.25rem;
   border-radius: 9999px;
@@ -237,11 +236,11 @@ ol {
   max-width: 500px;
 }
 
-.hero-btn {
+.hero-btn,
+.cta-banner-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  margin-top: 0.75rem;
   padding: 0.9rem 2rem;
   background-color: var(--accent);
   color: #fff;
@@ -256,12 +255,19 @@ ol {
   will-change: transform;
 }
 
-.hero-btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 20px 25px -5px rgba(125, 139, 112, 0.3);
+.hero-btn {
+  margin-top: 0.75rem;
 }
 
-.section {
+.hero-btn:hover,
+.cta-banner-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 24px -4px rgba(125, 139, 112, 0.3);
+}
+
+.section,
+.services-section,
+.professionals-section {
   padding: 6rem 0;
 }
 
@@ -293,11 +299,7 @@ ol {
   max-width: 600px;
 }
 
-.services-section {
-  padding: 6rem 0;
-}
-
-.services-header {
+.services-header, .professionals-header {
   margin-bottom: 3rem;
 }
 
@@ -333,15 +335,7 @@ ol {
   font-family: var(--font-parrafo, "Nunito", sans-serif);
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--color-parrafo, var(--text-apagado, #807f7e));
-}
-
-.professionals-section {
-  padding: 6rem 0;
-}
-
-.professionals-header {
-  margin-bottom: 3rem;
+  color: var(--text-apagado);
 }
 
 .professionals-table {
@@ -425,26 +419,6 @@ ol {
   max-width: 500px;
 }
 
-.cta-banner-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.9rem 2rem;
-  background-color: var(--accent);
-  color: #fff;
-  font-family: var(--font-parrafo);
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  transition: all 0.3s ease;
-  will-change: transform;
-}
-
-.cta-banner-btn:hover {
-  transform: scale(1.03);
-  box-shadow: 0 16px 24px -4px rgba(125, 139, 112, 0.3);
-}
-
 .site-footer {
   background-color: var(--bg-footer);
   padding: 4rem 0 2rem;
@@ -473,9 +447,7 @@ ol {
 }
 
 .footer-brand-link .logo-sitio {
-  height: 60px;
-  width: 60px;
-  filter: brightness(1.5);
+  filter: brightness(1.4);
 }
 
 .footer-brand-name {
@@ -550,7 +522,6 @@ ol {
 
 .prof-modal {
   position: fixed;
-  box-sizing: border-box;
   background: var(--bg-page);
   border-radius: 28px;
   overflow: hidden;
@@ -715,7 +686,6 @@ ol {
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--text-primary);
-  margin: 0;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -725,13 +695,10 @@ ol {
   font-size: 0.95rem;
   color: var(--text-apagado);
   line-height: 1.65;
-  margin: 0;
 }
 
 .prof-modal__history {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
