@@ -215,15 +215,6 @@ ol {
   margin-left: auto;
 }
 
-.hero-welcome {
-  font-family: var(--font-parrafo);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
 .hero-title {
   font-family: var(--font-titulos);
   font-size: clamp(2.8rem, 5vw, 4.2rem);
