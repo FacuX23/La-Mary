@@ -177,6 +177,7 @@
 .institucional-main ul {
     display: flex;
     justify-content: space-between;
+    gap: 40px;
     list-style: none;
     text-decoration: none;
     padding: var(--container-px);
