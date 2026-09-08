@@ -492,7 +492,6 @@ ol {
   z-index: 2000;
   background: rgba(42, 39, 35, 0.35);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   overscroll-behavior: contain;
 }
 
@@ -533,9 +532,8 @@ ol {
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: rgba(244, 243, 239, 0.85);
+  background: rgb(218 218 218 / 85%);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   color: var(--text-primary);
   cursor: pointer;
   display: grid;
