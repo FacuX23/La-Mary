@@ -548,15 +548,6 @@ ol {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-.prof-modal__close:active {
-  transform: scale(0.95);
-}
-
-.prof-modal__close:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
 .prof-modal__hero {
   display: flex;
   gap: 1.5rem;
