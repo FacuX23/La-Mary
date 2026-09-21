@@ -109,7 +109,7 @@
 
 @keyframes navbar-scrolled-links {
     0% {
-        color: var(--text-apagado);
+        color: var(--text-secondary);
     }
 
     100% {
@@ -209,7 +209,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    color: var(--text-claro);
+    color: var(--text-light);
     font-size: 2rem;
     margin-bottom: 12px;
     width: 100%;
@@ -303,14 +303,14 @@
 
 .contacto-info h2 {
     font-family: var(--font-titulos);
-    color: var(--text-claro);
+    color: var(--text-light);
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
 .contacto-info p {
     font-family: var(--font-parrafo);
-    color: var(--text-claro);
+    color: var(--text-light);
     font-size: 1rem;
     text-align: center;
 }

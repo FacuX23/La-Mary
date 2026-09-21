@@ -2,3 +2,7 @@
 .navbar-toggler:active {
   box-shadow: none;
 }
+
+.gap-3 {
+    gap: 2.1rem !important
+}

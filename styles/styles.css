@@ -7,7 +7,7 @@
 body {
   font-family: var(--font-parrafo);
   background-color: var(--bg-page);
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -45,7 +45,10 @@ ol {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: transparent;
+  backdrop-filter: blur(9px);
+  background-color: rgba(244, 243, 239, 0.85);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -57,10 +60,7 @@ ol {
   content: '';
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(9px);
-  background-color: rgba(244, 243, 239, 0.85);
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
   /* animation: navbar-blur-scroll 0.3s linear both; */
   /* animation-timeline: scroll();
   animation-range: 0 250px; */
@@ -194,7 +194,7 @@ ol {
 .hero-subtitle {
   font-family: var(--font-parrafo);
   font-size: 1.1rem;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 500px;
 }
@@ -257,7 +257,7 @@ ol {
 .section-subtitle {
   font-family: var(--font-parrafo);
   font-size: 1.1rem;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
 }
@@ -298,7 +298,7 @@ ol {
   font-family: var(--font-parrafo, "Nunito", sans-serif);
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
 }
 
 .professionals-table {
@@ -327,7 +327,7 @@ ol {
 .professionals-table td {
   font-family: var(--font-parrafo);
   font-size: 1rem;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   padding: 1rem 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   vertical-align: middle;
@@ -579,7 +579,7 @@ ol {
 .prof-modal__specialty {
   font-family: var(--font-parrafo);
   font-size: 0.95rem;
-  color: var(--text-claro);
+  color: var(--text-light);
   font-weight: 400;
   line-height: 1.4;
 }
@@ -598,7 +598,7 @@ ol {
   font-family: var(--font-parrafo);
   font-size: 0.78rem;
   font-weight: 500;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   background: var(--bg-card);
   padding: 0.35rem 0.7rem;
   border-radius: 9999px;
@@ -645,7 +645,7 @@ ol {
 .prof-modal__bio {
   font-family: var(--font-parrafo);
   font-size: 0.95rem;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   line-height: 1.65;
 }
 
@@ -660,7 +660,7 @@ ol {
   position: relative;
   font-family: var(--font-parrafo);
   font-size: 0.9rem;
-  color: var(--text-apagado);
+  color: var(--text-secondary);
   line-height: 1.5;
   padding-left: 1.35rem;
 }
