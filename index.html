@@ -6,28 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
     <title>Veterinaria La Mary - Inicio</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="/styles/styles-disables.css">
 </head>
 
 <body>
     <!-- ENCABEZADO Y NAVEGACIÓN -->
     <header>
-        <nav class="navbar">
-            <div class="site-container navbar-inner">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container site-container">
                 <a href="index.html" class="navbar-brand">
                     <img src="./assets/img/logo sin fondo.png" alt="Logo de Veterinaria La Mary" class="logo-sitio">
                     <span class="navbar-brand-name">La Mary</span>
                 </a>
 
-                <div class="navbar-menu">
-                    <ul class="navbar-links">
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#profesionales">Profesionales</a></li>
-                        <li><a href="/institucional.html">Institucional</a></li>
-                        <li><a href="/contacto.html">Contacto</a></li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#profesionales">Profesionales</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/institucional.html">Institucional</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contacto.html">Contacto</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <a href="/contacto.html" class="navbar-contacto">Solicitar Turno</a>
+                        </li>
                     </ul>
-                    <a href="/contacto.html" class="navbar-contacto">Solicitar Turno</a>
                 </div>
             </div>
         </nav>
@@ -40,7 +48,7 @@
             <div class="hero-overlay"></div>
             <div class="site-container hero-content">
                 <h1 class="hero-title">Cuidamos a tu mascota como si fuera propia</h1>
-                <p class="hero-subtitle">Veterinarios matriculados en clínica general, cirugía y dermatología, en el
+                <p class="hero-subtitle fw-normal">Veterinarios matriculados en clínica general, cirugía y dermatología, en el
                     corazón de Paraná.</p>
                 <a href="/contacto.html" class="hero-btn">Solicitar Turno</a>
             </div>
@@ -190,6 +198,7 @@
         </div>
     </footer>
 
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="./scripts/professional-modal.js"></script>
 </body>
 </html>
