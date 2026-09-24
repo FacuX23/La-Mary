@@ -169,14 +169,13 @@ function createModalHTML(data) {
   `
 }
 
-function openModal(tr) {
+function openModal(card) {
   if (activeModal) return
 
-  const cells = tr.querySelectorAll('td')
-  const imgEl = tr.querySelector('img')
-  const name = cells[1]?.textContent?.trim()
-  const specialty = cells[2]?.textContent?.trim()
-  const price = cells[3]?.textContent?.trim()
+  const imgEl = card.querySelector('.prof-img')
+  const name = card.querySelector('.prof-name')?.textContent?.trim()
+  const specialty = card.querySelector('.prof-specialty')?.textContent?.trim()
+  const price = card.querySelector('.prof-price')?.textContent?.trim()
 
   const extraData = professionalsData[name]
   if (!extraData || !imgEl) return
@@ -191,7 +190,7 @@ function openModal(tr) {
 
   previousFocusedElement = document.activeElement
 
-  const fromTrRect = tr.getBoundingClientRect()
+  const fromRect = card.getBoundingClientRect()
   const originImgRect = imgEl.getBoundingClientRect()
 
   const backdrop = document.createElement('div')
@@ -259,10 +258,10 @@ function openModal(tr) {
   imgEl.style.opacity = '0'
 
   Object.assign(modal.style, {
-    top: `${fromTrRect.top}px`,
-    left: `${fromTrRect.left}px`,
-    width: `${fromTrRect.width}px`,
-    height: `${fromTrRect.height}px`,
+    top: `${fromRect.top}px`,
+    left: `${fromRect.left}px`,
+    width: `${fromRect.width}px`,
+    height: `${fromRect.height}px`,
     borderRadius: '12px',
     backgroundColor: 'rgba(238, 236, 230, 0.98)',
     overflow: 'hidden',
@@ -285,7 +284,7 @@ function openModal(tr) {
     backdrop,
     modal,
     originImg: imgEl,
-    tr,
+    card,
     data,
     toTop,
     toLeft,
@@ -375,7 +374,7 @@ function closeModal() {
   if (!activeModal || activeModal.isClosing) return
   activeModal.isClosing = true
 
-  const { backdrop, modal, originImg, tr, data } = activeModal
+  const { backdrop, modal, originImg, card, data } = activeModal
   const modalPhoto = modal.querySelector('.prof-modal__photo')
   const heroInfo = modal.querySelector('.prof-modal__hero-info')
   const modalBody = modal.querySelector('.prof-modal__body')
@@ -384,9 +383,9 @@ function closeModal() {
   backdrop.removeEventListener('click', onBackdropClick)
   document.removeEventListener('keydown', onKeyDown)
 
-  tr.style.transform = 'none'
+  card.style.transform = 'none'
   originImg.style.transform = 'none'
-  const currentTrRect = tr.getBoundingClientRect()
+  const currentCardRect = card.getBoundingClientRect()
   const currentOriginImgRect = originImg.getBoundingClientRect()
   const currentModalPhotoRect = modalPhoto.getBoundingClientRect()
 
@@ -445,10 +444,10 @@ function closeModal() {
   })
 
   gsap.to(modal, {
-    top: currentTrRect.top,
-    left: currentTrRect.left,
-    width: currentTrRect.width,
-    height: currentTrRect.height,
+    top: currentCardRect.top,
+    left: currentCardRect.left,
+    width: currentCardRect.width,
+    height: currentCardRect.height,
     borderRadius: '12px',
     backgroundColor: 'rgba(238, 236, 230, 0.98)',
     opacity: 0.15,
@@ -465,7 +464,7 @@ function closeModal() {
       backdrop.remove()
       originImg.style.opacity = '1'
       originImg.style.transform = ''
-      tr.style.transform = ''
+      card.style.transform = ''
       if (previousFocusedElement && previousFocusedElement.isConnected) {
         previousFocusedElement.focus({ preventScroll: true });
       }
@@ -513,24 +512,23 @@ function onKeyDown(e) {
 }
 
 function init() {
-  const table = document.querySelector('.professionals-table')
-  if (!table) return
+  const list = document.querySelector('.professionals-list')
+  if (!list) return
 
-  const rows = table.querySelectorAll('tbody tr')
+  const cards = list.querySelectorAll('.prof-card')
 
-  rows.forEach(tr => {
-    tr.style.cursor = 'pointer'
-    tr.setAttribute('role', 'button')
-    tr.setAttribute('tabindex', '0')
-    const name = tr.querySelectorAll('td')[1]?.textContent?.trim() || ''
-    tr.setAttribute('aria-label', `Ver perfil de ${name}`)
+  cards.forEach(card => {
+    card.setAttribute('role', 'button')
+    card.setAttribute('tabindex', '0')
+    const name = card.querySelector('.prof-name')?.textContent?.trim() || ''
+    card.setAttribute('aria-label', `Ver perfil de ${name}`)
 
-    tr.addEventListener('click', () => openModal(tr))
+    card.addEventListener('click', () => openModal(card))
 
-    tr.addEventListener('keydown', (e) => {
+    card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()
-        openModal(tr)
+        openModal(card)
       }
     })
   })

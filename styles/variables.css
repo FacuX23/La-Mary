@@ -11,6 +11,9 @@
   --text-light: #6b6963;
   --text-white: #fff;
 
+  /* Hero Texts */
+  --hero-title: #e3dbcf;
+
   /* accent */
   --accent: #7d8b70;
   --accent-hover: #6b7a5f;
