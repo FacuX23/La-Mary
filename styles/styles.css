@@ -262,7 +262,8 @@ ol {
   max-width: 600px;
 }
 
-.services-header, .professionals-header {
+.services-header,
+.professionals-header {
   margin-bottom: 3rem;
 }
 
@@ -388,10 +389,6 @@ ol {
 }
 
 .footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -429,8 +426,7 @@ ol {
 }
 
 .footer-links-group {
-  display: flex;
-  gap: 4rem;
+  justify-content: flex-end;
 }
 
 .footer-col h4 {
@@ -684,4 +680,11 @@ ol {
 
 .prof-modal__history li+li::before {
   top: calc(0.6rem + 0.5em);
+}
+
+@media (max-width: 480px) {
+  ol,
+  ul {
+    padding-left: 0;
+  }
 }
