@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
 body {
   font-family: var(--font-parrafo);
   background-color: var(--bg-page);
@@ -11,8 +16,8 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
-  scroll-behavior: smooth;
+body.modal-open {
+  padding-right: 0 !important;
 }
 
 img {
@@ -292,6 +297,24 @@ ol {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-secondary);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--accent);
+  color: #fff;
+  font-family: var(--font-parrafo);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  will-change: transform;
 }
 
 .professionals-list {

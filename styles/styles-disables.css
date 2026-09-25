@@ -6,3 +6,15 @@
 .gap-3 {
     gap: 2.1rem !important
 }
+
+.btn:hover {
+  background: #66705d !important;
+}
+
+.btn:focus-visible {
+  color: none !important;
+  background-color: none !important;
+  border-color: none !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+}

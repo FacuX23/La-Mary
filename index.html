@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
     <title>Veterinaria La Mary - Inicio</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/variables.css">
-    <link rel="stylesheet" href="/styles/styles-disables.css">
+    <link rel="stylesheet" href="styles/styles-disables.css">
 </head>
 
 <body>
@@ -45,7 +45,7 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main>
         <!-- SECCIÓN PORTADA / HERO -->
-        <section class="hero-section">
+        <section class="hero-section ">
             <div class="hero-overlay"></div>
             <div class="container site-container hero-content">
                 <h1 class="hero-title">Cuidamos a tu mascota como si fuera propia</h1>
@@ -65,31 +65,81 @@
                     <p class="section-subtitle">Cuidado integral para la salud y bienestar de tu mascota, con
                         profesionales especializados y tecnología de última generación.</p>
                 </div>
+
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 col-12">
                         <article class="service-card h-100">
                             <h3 class="service-card-title">Consultas</h3>
                             <p class="service-card-desc">Evaluamos la salud integral de tu compañero mediante revisiones
                                 clínicas completas y chequeos preventivos.</p>
+                                <button class="btn btn-outline-success rounded-pill mt-3 align-self-start" data-bs-toggle="modal" data-bs-target="#modalConsultas">Ver más</button>
                         </article>
                     </div>
+
                     <div class="col-lg-4 col-md-6 col-12">
                         <article class="service-card h-100">
                             <h3 class="service-card-title">Vacunación</h3>
                             <p class="service-card-desc">Mantenemos al día el esquema de inmunización para protegerla contra
                                 enfermedades comunes y parásitos.</p>
+                             <button class="service-btn btn btn-outline-success rounded-pill mt-3 align-self-start" data-bs-toggle="modal" data-bs-target="#modalVacunacion">Ver más</button>   
                         </article>
                     </div>
+
                     <div class="col-lg-4 col-md-6 col-12">
                         <article class="service-card h-100">
                             <h3 class="service-card-title">Cirugías</h3>
                             <p class="service-card-desc">Espacio equipado y estrictos protocolos de seguridad para
                                 intervenciones programadas y de alta complejidad.</p>
+                                <button class="service-btn btn btn-outline-success rounded-pill mt-3 align-self-start" data-bs-toggle="modal" data-bs-target="#modalCirugias">Ver más</button>
                         </article>
                     </div>
+
                 </div>
             </div>
         </section>
+
+            <!-- MODALES DE SERVICIOS-->
+        <div class="modal fade" id="modalConsultas" tabindex="-1" aria-labelledby="modalConsultasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalConsultasLabel">Consultas Clínicas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Incluye examen físico general, control de peso, chequeo dental preventivo y orientación nutricional. Recomendamos realizar una consulta de rutina al menos una vez al año para mantener su salud al día.
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade" id="modalVacunacion" tabindex="-1" aria-labelledby="modalVacunacionLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalVacunacionLabel">Esquema de Vacunación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Aplicación de vacunas quíntuples, sextuples, quíntuples felinas, antirrábica y planes de desparasitación interna y externa adaptados a la edad y estilo de vida de tu mascota.
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade" id="modalCirugias" tabindex="-1" aria-labelledby="modalCirugiasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="modalCirugiasLabel">Intervenciones Quirúrgicas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Contamos con quirófano totalmente equipado, monitoreo anestésico permanente e intervenciones de tejidos blandos, castraciones y cirugías de urgencia con cuidado postoperatorio dedicado.
+            </div>
+            </div>
+        </div>
+        </div>
 
         <!-- SECCIÓN: LISTADO DE PROFESIONALES (Requerimiento clave del TP) -->
         <section id="profesionales" class="professionals-section">
