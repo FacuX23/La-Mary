@@ -1,9 +1,9 @@
 @import url("variables.css");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 .site-container {
@@ -21,14 +21,14 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: transparent;
+    backdrop-filter: blur(9px);
+    background-color: rgba(244, 243, 239, 0.85);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     height: 80px;
 }
 
@@ -36,27 +36,8 @@
     content: '';
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(0);
-    background-color: transparent;
-    animation: navbar-blur-scroll 0.3s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 250px;
     pointer-events: none;
     z-index: -1;
-}
-
-@keyframes navbar-blur-scroll {
-    0% {
-        background-color: transparent;
-        backdrop-filter: blur(0);
-    }
-
-    100% {
-        background-color: rgba(244, 243, 239, 0.85);
-        backdrop-filter: blur(9px);
-        border-radius: 0 0 12px 12px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
 }
 
 .navbar-brand {
@@ -81,20 +62,7 @@
     letter-spacing: 0.01em;
 }
 
-.navbar-menu {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-}
-
-.navbar-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-    list-style: none;
-}
-
-.navbar-links a {
+.navbar .nav-link {
     font-family: var(--font-parrafo);
     font-size: 0.95rem;
     font-weight: 500;
@@ -104,17 +72,7 @@
     animation: navbar-scrolled-links 0.3s linear both;
     animation-timeline: scroll();
     animation-range: 0 250px;
-    text-decoration: none;
-}
-
-@keyframes navbar-scrolled-links {
-    0% {
-        color: var(--text-secondary);
-    }
-
-    100% {
-        color: var(--text-primary);
-    }
+    padding: 0.5rem 0 !important;
 }
 
 .navbar-contacto {
@@ -137,7 +95,6 @@
     background-color: var(--accent-apagado);
 }
 
-
 .institucional-central {
     display: flex;
     flex-direction: column;
@@ -145,7 +102,6 @@
     max-width: var(--container-max);
     margin: 0 auto;
     padding: var(--container-px);
-    max-width: var(--container-max);
 }
 
 .institucional-central h2 {
@@ -157,15 +113,10 @@
     padding-top: var(--container-px);
 }
 
-.institucional-central div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
+.institucional-central .historia-item {
     color: var(--text-muted);
     font-family: var(--font-parrafo);
     font-size: 1.2rem;
-    padding-top: var(--container-px);
 }
 
 .institucional-central img {
@@ -180,31 +131,19 @@
     transform: scale(1.07);
 }
 
-.institucional-main ul {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    text-decoration: none;
-    padding: var(--container-px);
-    gap: 20px;
-    margin: 0;
+.bg-cta-container {
     background-color: var(--bg-cta);
+    width: 100%;
 }
 
-.institucional-main ul li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    max-width: 400px;
+.tarjeta-item {
     font-family: var(--font-parrafo);
     text-align: center;
-    padding: 25px 20px;
     background-color: var(--text-white);
     border-radius: 1.7rem;
 }
 
-.institucional-main ul li strong {
+.tarjeta-item strong {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -215,104 +154,68 @@
     width: 100%;
 }
 
+.tarjeta-item p {
+    color: var(--text-secondary);
+}
+
 .fa-solid {
     margin-right: 10px;
 }
 
-
 .contacto-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: var(--container-px);
+    font-family: var(--font-parrafo);
 }
 
-.contacto-main form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 800px;
+.contacto-main form.formulario {
     background-color: var(--accent);
-    border-radius: 1.7rem;
-    padding: 20px;
-    margin-top: 120px;
-    font-family: var(--font-parrafo);
-    font-size: 1.5rem;
     color: var(--text-white);
 }
 
-.formulario div {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 600px;
+.contacto-main .formulario h2 {
+    font-family: var(--font-titulos);
+    font-size: 2.5rem;
 }
 
-.formulario input,
-.formulario textarea {
-    border-radius: 1.5rem;
-    padding: 5px;
-    font-size: 1rem;
+.contacto-main .form-control {
     font-family: var(--font-parrafo);
     color: var(--text-primary);
+    border: 1px solid transparent;
+    padding: 0.75rem 1.25rem;
+}
+
+.contacto-main .form-control:focus {
+    border-color: var(--bg-page);
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+}
+
+.contacto-main .btn-custom {
+    background-color: var(--text-white);
+    color: var(--text-primary);
+    border-radius: 9999px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
     border: none;
 }
 
-.formulario button {
-    border-radius: 1.5rem;
-    width: 30%;
-    padding: 12px;
-    font-size: 1.2rem;
-    font-family: var(--font-parrafo);
-    color: var(--text-primary);
-    border: none;
-}
-
-.formulario button:hover {
+.contacto-main .btn-custom:hover {
     background-color: var(--footer-muted);
     color: var(--text-white);
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.contacto-info {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 20px;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 1.7rem;
-}
-
-.contacto-info section {
-    flex: 1;
-    max-width: 320px;
+.contacto-info .card {
     background-color: var(--bg-cta);
-    padding: 20px;
-    border-radius: 1.7rem;
-    box-sizing: border-box;
 }
 
-.contacto-info h2 {
+.contacto-info .card-title {
     font-family: var(--font-titulos);
     color: var(--text-light);
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
-.contacto-info p {
+.contacto-info .card-text {
     font-family: var(--font-parrafo);
     color: var(--text-light);
     font-size: 1rem;
-    text-align: center;
 }
 
 .site-footer {
@@ -340,13 +243,10 @@
     align-items: center;
     gap: 0.5rem;
     color: var(--footer-text);
-    text-decoration: none;
 }
 
 .footer-brand-link .logo-sitio {
-    height: 60px;
-    width: 60px;
-    filter: brightness(1.5);
+    filter: brightness(1.4);
 }
 
 .footer-brand-name {
@@ -384,6 +284,7 @@
     gap: 0.6rem;
     color: var(--text-white);
     list-style: none;
+    font-family: var(--font-parrafo);
 }
 
 .footer-col a {
@@ -396,7 +297,6 @@
 
 .footer-col a:hover {
     color: var(--footer-text);
-    text-decoration: none;
 }
 
 .footer-bottom {
