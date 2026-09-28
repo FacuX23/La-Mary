@@ -334,8 +334,6 @@ ol {
 }
 
 .prof-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
   background-color: rgba(125, 139, 112, 0.04);
 }
 
@@ -754,4 +752,3 @@ ol {
     color: rgba(255, 255, 255, 0.85);
   }
 }
-
