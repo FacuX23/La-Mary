@@ -7,6 +7,7 @@
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     <title>Veterinaria La Mary - Inicio</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/variables.css">
     <link rel="stylesheet" href="styles/styles-disables.css">
@@ -68,7 +69,7 @@
 
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 col-12">
-                        <article class="service-card h-100">
+                        <article class="service-card rounded-4 h-100">
                             <h3 class="service-card-title">Consultas</h3>
                             <p class="service-card-desc">Evaluamos la salud integral de tu compañero mediante revisiones
                                 clínicas completas y chequeos preventivos.</p>
@@ -77,7 +78,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-12">
-                        <article class="service-card h-100">
+                        <article class="service-card rounded-4 h-100">
                             <h3 class="service-card-title">Vacunación</h3>
                             <p class="service-card-desc">Mantenemos al día el esquema de inmunización para protegerla contra
                                 enfermedades comunes y parásitos.</p>
@@ -86,7 +87,7 @@
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-12">
-                        <article class="service-card h-100">
+                        <article class="service-card rounded-4 h-100">
                             <h3 class="service-card-title">Cirugías</h3>
                             <p class="service-card-desc">Espacio equipado y estrictos protocolos de seguridad para
                                 intervenciones programadas y de alta complejidad.</p>
@@ -244,7 +245,7 @@
     </main>
 
     <!-- PIE DE PÁGINA -->
-    <footer class="site-footer">
+            <footer class="site-footer">
         <div class="container site-container">
             <div class="footer-content row gy-4">
                 <div class="col-lg-4 col-md-12 footer-brand">
@@ -252,29 +253,28 @@
                         <img src="assets/img/logo sin fondo.png" alt="Logo Veterinaria La Mary" class="logo-sitio">
                         <span class="footer-brand-name">La Mary</span>
                     </a>
-                    <p class="footer-brand-desc">Protegiendo sus huellas en cada etapa de su vida con dedicación y
-                        profesionalismo.</p>
+                    <p class="footer-brand-desc mt-3">Protegiendo sus huellas en cada etapa de su vida con dedicación y profesionalismo.</p>
                 </div>
                 <div class="col-lg-8 col-md-12">
                     <div class="row gy-4 footer-links-group">
                         <div class="col-sm-4 col-12 footer-col">
                             <h4>Navegación</h4>
-                            <ul>
+                            <ul class="list-unstyled p-0 m-0">
                                 <li><a href="index.html">Inicio</a></li>
-                                <li><a href="#servicios">Servicios</a></li>
-                                <li><a href="#profesionales">Profesionales</a></li>
+                                <li><a href="index.html#servicios">Servicios</a></li>
+                                <li><a href="index.html#profesionales">Profesionales</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-12 footer-col">
                             <h4>Información</h4>
-                            <ul>
+                            <ul class="list-unstyled p-0 m-0">
                                 <li><a href="institucional.html">Institucional</a></li>
                                 <li><a href="contacto.html">Contacto</a></li>
                             </ul>
                         </div>
                         <div class="col-sm-4 col-12 footer-col">
                             <h4>Contacto</h4>
-                            <ul>
+                            <ul class="list-unstyled p-0 m-0">
                                 <li>Rivadavia 1152</li>
                                 <li>Paraná, Entre Ríos</li>
                             </ul>
@@ -282,9 +282,9 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom flex-column flex-md-row text-center">
-                <p>&copy; 2026 - Desarrollado por IDW. para Veterinaria La Mary</p>
-                <p>Veterinaria La Mary - Rivadavia 1152, Paraná, Entre Ríos</p>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 text-center">
+                <p class="mb-2 mb-md-0">&copy; 2026 - Desarrollado por IDW S.A. para Veterinaria La Mary</p>
+                <p class="mb-0">Veterinaria La Mary - Rivadavia 1152, Paraná, Entre Ríos</p>
             </div>
         </div>
     </footer>

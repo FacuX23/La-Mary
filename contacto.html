@@ -7,6 +7,7 @@
     <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
     <title>Veterinaria La Mary - Contacto</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/global.css">
     <link rel="stylesheet" href="styles/paginas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles/styles-disables.css">
@@ -47,116 +48,140 @@
                 <form class="formulario p-4 p-md-5 rounded-4 shadow-sm mb-5">
                     <h2 class="text-center mb-4">Formulario de Contacto</h2>
 
-                    <div class="mb-3">
-                        <label for="nombre" class="form-label fw-medium">Nombre:</label>
-                        <input type="text" class="form-control form-control-lg rounded-pill" id="nombre" name="nombre"
-                            placeholder="Ingrese su nombre" required>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nombre" class="form-label fw-medium">Nombre:</label>
+                            <input type="text" class="form-control form-control-lg rounded-pill" id="nombre" name="nombre"
+                                required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="apellido" class="form-label fw-medium">Apellido:</label>
+                            <input type="text" class="form-control form-control-lg rounded-pill" id="apellido"
+                                name="apellido" required>
+                        </div>
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label fw-medium">Correo Electrónico:</label>
                         <input type="email" class="form-control form-control-lg rounded-pill" id="email" name="email"
-                            placeholder="ejemplo@correo.com" required>
+                            required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="motivo" class="form-label fw-medium">Motivo de consulta:</label>
+                            <select class="form-select form-select-lg rounded-pill" id="motivo" name="motivo" required>
+                                <option value="" selected disabled>Seleccione un motivo...</option>
+                                <option value="consulta">Consulta General</option>
+                                <option value="vacunacion">Vacunación</option>
+                                <option value="cirugia">Cirugía / Especialidad</option>
+                                <option value="urgencia">Urgencia</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="mascota" class="form-label fw-medium">Tipo de mascota:</label>
+                            <select class="form-select form-select-lg rounded-pill" id="mascota" name="mascota" required>
+                                <option value="" selected disabled>Seleccione mascota...</option>
+                                <option value="perro">Perro</option>
+                                <option value="gato">Gato</option>
+                                <option value="exotico">Animal Exótico</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="mb-4">
-                        <label for="mensaje" class="form-label fw-medium">Mensaje:</label>
-                        <textarea class="form-control rounded-4" id="mensaje" name="mensaje" rows="4"
-                            placeholder="Escriba su mensaje aquí..."></textarea>
+                        <label for="mensaje" class="textarea-style form-label fw-medium">Mensaje adicional:</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="4"
+                            placeholder="Dejanos más detalles si es necesario..."></textarea>
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-custom px-5 py-2 fw-semibold">Enviar</button>
+                        <button type="submit" class="btn btn-custom px-5 py-2 fw-semibold rounded-pill">Enviar</button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <div class="contacto-info row g-4 justify-content-center">
+        <div class="contacto-info row g-4 mt-5 justify-content-center">
             <div class="col-12 col-md-6 col-lg-4">
-                <section class="card h-100 border-0 p-3 rounded-4 text-center">
-                    <div class="card-body">
-                        <h2 class="h4 card-title mb-3">
-                            <i class="fa-solid fa-headset me-2"></i>Contacto
-                        </h2>
-                        <p class="card-text mb-1"><strong>Teléfono:</strong> 0343-15555555</p>
-                        <p class="card-text mb-1"><strong>Email:</strong> info@veterinarialamary.com</p>
-                        <p class="card-text"><strong>Guardia las 24 horas</strong></p>
+                <div class="card h-100 border-0 rounded-4 text-center p-4 transition-all hover-lift">
+                    <div class="icon-wrapper d-flex justify-content-center align-items-center mx-auto mb-3" style="width: 60px; height: 60px; background-color: rgba(125, 139, 112, 0.1); color: var(--accent); border-radius: 50%;">
+                        <i class="fa-solid fa-headset fs-3"></i>
                     </div>
-                </section>
+                    <h3 class="h5 mb-3 fw-semibold">Contacto</h3>
+                    <p class="text-muted mb-1"><strong>Teléfono:</strong> 0343-15555555</p>
+                    <p class="text-muted mb-1"><strong>Email:</strong> info@veterinarialamary.com</p>
+                    <p class="text-muted mb-0"><strong>Guardia las 24 horas</strong></p>
+                </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-4">
-                <section class="card h-100 border-0 p-3 rounded-4 text-center">
-                    <div class="card-body">
-                        <h2 class="h4 card-title mb-3">
-                            <i class="fa-solid fa-location-dot me-2"></i>Ubicación
-                        </h2>
-                        <p class="card-text mb-1"><strong>Dirección:</strong> Av. San Martin 123</p>
-                        <p class="card-text mb-1">Ciudad de Entre Ríos, Diamante</p>
-                        <p class="card-text"><em>Encontranos en Google Maps</em></p>
+                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 transition-all hover-lift">
+                    <div class="icon-wrapper d-flex justify-content-center align-items-center mx-auto mb-3" style="width: 60px; height: 60px; background-color: rgba(125, 139, 112, 0.1); color: var(--accent); border-radius: 50%;">
+                        <i class="fa-solid fa-location-dot fs-3"></i>
                     </div>
-                </section>
+                    <h3 class="h5 mb-3 fw-semibold">Ubicación</h3>
+                    <p class="text-muted mb-1"><strong>Dirección:</strong> Av. San Martin 123</p>
+                    <p class="text-muted mb-1">Ciudad de Entre Ríos, Diamante</p>
+                    <p class="text-muted mb-0"><em>Encontranos en Google Maps</em></p>
+                </div>
             </div>
 
             <div class="col-12 col-md-6 col-lg-4">
-                <section class="card h-100 border-0 p-3 rounded-4 text-center">
-                    <div class="card-body">
-                        <h2 class="h4 card-title mb-3">
-                            <i class="fa-solid fa-clock me-2"></i>Horarios
-                        </h2>
-                        <p class="card-text mb-1"><strong>Lunes a Viernes:</strong> 8:00 a 20:00</p>
-                        <p class="card-text mb-1"><strong>Sábados:</strong> 8:00 a 13:00</p>
-                        <p class="card-text"><strong>Domingos:</strong> Cerrado</p>
+                <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-4 transition-all hover-lift">
+                    <div class="icon-wrapper d-flex justify-content-center align-items-center mx-auto mb-3" style="width: 60px; height: 60px; background-color: rgba(125, 139, 112, 0.1); color: var(--accent); border-radius: 50%;">
+                        <i class="fa-solid fa-clock fs-3"></i>
                     </div>
-                </section>
+                    <h3 class="h5 mb-3 fw-semibold">Horarios</h3>
+                    <p class="text-muted mb-1"><strong>Lunes a Viernes:</strong> 8:00 a 20:00</p>
+                    <p class="text-muted mb-1"><strong>Sábados:</strong> 8:00 a 13:00</p>
+                    <p class="text-muted mb-0"><strong>Domingos:</strong> Cerrado</p>
+                </div>
             </div>
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="site-container">
-            <div
-                class="footer-content flex-column flex-lg-row align-items-center align-items-lg-start text-center text-lg-start">
-                <div class="footer-brand align-items-center align-items-lg-start">
+            <footer class="site-footer">
+        <div class="container site-container">
+            <div class="footer-content row gy-4">
+                <div class="col-lg-4 col-md-12 footer-brand">
                     <a href="index.html" class="footer-brand-link">
                         <img src="assets/img/logo sin fondo.png" alt="Logo Veterinaria La Mary" class="logo-sitio">
                         <span class="footer-brand-name">La Mary</span>
                     </a>
-                    <p class="footer-brand-desc">Protegiendo sus huellas en cada etapa de su vida con dedicación y
-                        profesionalismo.</p>
+                    <p class="footer-brand-desc mt-3">Protegiendo sus huellas en cada etapa de su vida con dedicación y profesionalismo.</p>
                 </div>
-
-                <div
-                    class="footer-links-group flex-column flex-sm-row justify-content-center justify-content-lg-end w-100 gap-lg-5">
-                    <div class="footer-col">
-                        <h4>Navegación</h4>
-                        <ul>
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="index.html#servicios">Servicios</a></li>
-                            <li><a href="index.html#profesionales">Profesionales</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4>Información</h4>
-                        <ul>
-                            <li><a href="institucional.html">Institucional</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4>Contacto</h4>
-                        <ul>
-                            <li>Rivadavia 1152</li>
-                            <li>Paraná, Entre Ríos</li>
-                        </ul>
+                <div class="col-lg-8 col-md-12">
+                    <div class="row gy-4 footer-links-group">
+                        <div class="col-sm-4 col-12 footer-col">
+                            <h4>Navegación</h4>
+                            <ul class="list-unstyled p-0 m-0">
+                                <li><a href="index.html">Inicio</a></li>
+                                <li><a href="index.html#servicios">Servicios</a></li>
+                                <li><a href="index.html#profesionales">Profesionales</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-12 footer-col">
+                            <h4>Información</h4>
+                            <ul class="list-unstyled p-0 m-0">
+                                <li><a href="institucional.html">Institucional</a></li>
+                                <li><a href="contacto.html">Contacto</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 col-12 footer-col">
+                            <h4>Contacto</h4>
+                            <ul class="list-unstyled p-0 m-0">
+                                <li>Rivadavia 1152</li>
+                                <li>Paraná, Entre Ríos</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom flex-column flex-md-row text-center text-md-start gap-2 gap-md-0">
-                <p class="mb-0">&copy; 2026 - Desarrollado por IDW. para Veterinaria La Mary</p>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center mt-4 text-center">
+                <p class="mb-2 mb-md-0">&copy; 2026 - Desarrollado por IDW S.A. para Veterinaria La Mary</p>
                 <p class="mb-0">Veterinaria La Mary - Rivadavia 1152, Paraná, Entre Ríos</p>
             </div>
         </div>
