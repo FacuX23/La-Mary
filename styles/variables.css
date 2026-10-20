@@ -30,6 +30,16 @@
   /* Tipografía */
   --font-titulos: "Cormorant Garamond", Georgia, "Times New Roman", serif;
   --font-parrafo: "Nunito", sans-serif;
+
+  /* Mascotas */
+  --bs-border-radius: 15px !important;
+  --bs-border-width: 2px !important;
+  --bs-border-color: #e6eaed !important;
+
+  --bs-table-bg: #E8EAE3 !important;
+  --bs-border-color: rgb(234, 234, 234) !important;
+  --bs-border-color-translucent: none !important;
+  
 }
 
 @font-face {

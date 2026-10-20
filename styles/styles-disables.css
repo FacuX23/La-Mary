@@ -37,5 +37,37 @@
 
 .rounded-pill,
 .form-control {
-  border-radius: 10px !important;
+  border-radius: 13px !important;
+}
+
+/* MASCOTAS */
+
+.card-body {
+  border-radius: 15px;
+}
+
+.form-control:focus {
+  border-color: #a0a89a !important;
+  box-shadow: none;
+}
+
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  padding: 5px 10px !important;
 }
