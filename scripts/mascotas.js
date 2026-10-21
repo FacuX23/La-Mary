@@ -1,6 +1,9 @@
 // 1. Definimos la clave con la que vamos a guardar las mascotas en la memoria del navegador
 const CLAVE_MASCOTAS = "mascotas_la_mary";
 
+// Variable temporal para guardar el ID de la mascota que se quiere eliminar (cuando se abre la modal)
+let idMascotaAEliminar = null;
+
 // 2. Función para obtener las mascotas del LocalStorage (si no hay nada, devuelve una lista vacía [])
 const obtenerMascotas = () => {
     return JSON.parse(localStorage.getItem(CLAVE_MASCOTAS)) || [];
@@ -9,6 +12,13 @@ const obtenerMascotas = () => {
 // 3. Función para guardar la lista actualizada en el LocalStorage
 const guardarMascotasEnStorage = (mascotas) => {
     localStorage.setItem(CLAVE_MASCOTAS, JSON.stringify(mascotas));
+};
+
+// Muestra el aviso flotante (Toast) cuando registramos una nueva mascota
+const mostrarToastExito = () => {
+    const toastElement = document.getElementById("toastMascota");
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
 };
 
 // 4. Función para dibujar/mostrar las mascotas en la tabla de la página
@@ -82,6 +92,8 @@ formMascota.addEventListener("submit", (e) => {
 
         // Agregamos la nueva mascota a la lista
         mascotas.push(nuevaMascota);
+
+        mostrarToastExito();
     } else {
         // --- CASO EDITAR MASCOTA EXISTENTE ---
         const index = mascotas.findIndex(m => m.idMascota === idMascota);
@@ -140,14 +152,30 @@ window.cancelarEdicion = () => {
     document.getElementById("btnCancelarEdicion").classList.add("d-none");
 };
 
-// 8. Función para eliminar una mascota
+// 8. Paso 1 para eliminar: Abrimos la modal de confirmación y guardamos el ID de la mascota que se quiere eliminar
 window.eliminarMascota = (id) => {
-    if (confirm("¿Estás segura de que querés eliminar esta mascota de los registros?")) {
+    idMascotaAEliminar = id; // Guardamos el ID que quiere borrar
+    const modalEliminarEl = document.getElementById("modalEliminar");
+    const modalEliminar = new bootstrap.Modal(modalEliminarEl);
+    modalEliminar.show();
+};
+
+// 9. Paso 2 para eliminar: Cuando el usuario confirma la eliminación, borramos la mascota del LocalStorage y actualizamos la tabla
+document.getElementById("btnConfirmarEliminar").addEventListener("click", () => {
+    if (idMascotaAEliminar) {
         let mascotas = obtenerMascotas();
-        // Filtramos la lista sacando la mascota que coincide con el ID
-        mascotas = mascotas.filter(m => m.idMascota !== id);
+        // Filtramos la lista sacando la mascota que coincide con el ID guardado
+        mascotas = mascotas.filter(m => m.idMascota !== idMascotaAEliminar);
 
         guardarMascotasEnStorage(mascotas);
         mostrarMascotas();
+
+        // Cerramos la modal de forma programática
+        const modalEliminarEl = document.getElementById("modalEliminar");
+        const modalInstance = bootstrap.Modal.getInstance(modalEliminarEl);
+        modalInstance.hide();
+
+        // Limpiamos la variable temporal
+        idMascotaAEliminar = null;
     }
-};
+});
