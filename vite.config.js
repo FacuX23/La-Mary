@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         institucional: resolve(__dirname, 'institucional.html'),
         contacto: resolve(__dirname, 'contacto.html'),
+        login: resolve(__dirname, 'login.html'),
       },
     },
   },

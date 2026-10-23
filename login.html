@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Veterinaria La Mary - Ingresar</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+
+<body>
+    <main class="login-page">
+        <div class="row g-0 min-vh-100">
+            <section class="col-lg-6 login-visual d-none d-lg-flex">
+                <a href="index.html" class="login-brand">
+                    <i class="fa-solid fa-paw"></i>
+                    <span>La Mary</span>
+                </a>
+                <div class="login-visual-text">
+                    <h2>Cuidado profesional con calidad para quienes más querés.</h2>
+                    <p>Clínica, cirugía y dermatología en Paraná.</p>
+                </div>
+            </section>
+
+            <section class="col-12 col-lg-6 login-panel">
+                <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+                    <a href="index.html" class="login-back mb-0">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Volver al inicio</span>
+                    </a>
+                    <span class="text-muted">·</span>
+                    <a href="mascotas.html" class="login-back mb-0">Mascotas</a>
+                    <span class="text-muted">·</span>
+                    <a href="veterinarios.html" class="login-back mb-0">Veterinarios</a>
+                </div>
+
+                <div class="login-content">
+                    <header class="login-header">
+                        <h1>Ingresá a tu cuenta</h1>
+                        <p>Acceso al panel de administración</p>
+                    </header>
+
+                    <div class="login-card">
+                        <form id="login-form" class="login-form">
+                            <div class="mb-3">
+                                <label for="nombreUsuario" class="form-label">Nombre de usuario</label>
+                                <div class="input-group login-input-group">
+                                    <span class="input-group-text"><i class="fa-regular fa-user"></i></span>
+                                    <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario"
+                                        placeholder="Usuario" autocomplete="nombreUsuario" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="contrasena" class="form-label mb-2">Contraseña</label>
+                                <div class="input-group login-input-group">
+                                    <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                                    <input type="password" class="form-control" id="contrasena" name="contrasena"
+                                        placeholder="••••••••" autocomplete="current-password" required>
+                                </div>
+                            </div>
+
+                            <span id="login-error" class="text-danger"></span>
+
+                            <button id="login-ingresar" type="submit" class="btn login-submit w-100">Ingresar</button>
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

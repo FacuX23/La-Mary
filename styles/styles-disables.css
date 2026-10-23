@@ -84,10 +84,13 @@
 }
 
 .modal-footer {
-  justify-content: start !important;
   border-top: none !important;
 }
 
 .table>:not(caption)>*>* {
   border-bottom: none !important
+}
+
+.nav-link.active {
+  font-size: 1rem !important;
 }

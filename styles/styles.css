@@ -183,7 +183,7 @@ ol {
 }
 
 .btn, .btn-edit, .btn-delete {
-  border-radius: 9999px;
+  border-radius: 20px;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -196,13 +196,11 @@ ol {
   letter-spacing: 0.025em;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   will-change: transform;
 }
 
 /* mascotas */
-
-
 .btn-delete {
   background-color: #ffcaca !important;
   color: #C62828 !important;
@@ -211,6 +209,7 @@ ol {
 .btn-delete:hover {
   background-color: #F5DADA !important;
   color: #B71C1C !important;
+  border-radius: 15px;
 }
 
 .btn-edit {
@@ -221,6 +220,7 @@ ol {
 .btn-edit:hover {
   background-color: #e1e8db !important;
   color: #566344 !important;
+  border-radius: 15px;
 }
 
 .professionals-list {
