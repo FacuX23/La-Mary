@@ -1,4 +1,4 @@
-Integrante:
+Integrantes:
 
 Eduardo Enrique Moyano
 Fiorella Román

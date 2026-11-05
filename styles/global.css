@@ -69,7 +69,7 @@
   padding: 0.5rem 0 !important;
 }
 
-.navbar-contacto {
+.navbar-login {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -85,7 +85,7 @@
   text-decoration: none;
 }
 
-.navbar-contacto:hover {
+.navbar-login:hover {
   background-color: var(--accent-apagado);
 }
 
