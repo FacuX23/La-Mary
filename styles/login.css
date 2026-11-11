@@ -41,9 +41,11 @@ body {
   text-decoration: none;
 }
 
-.login-brand i {
-  font-size: 1.5rem;
-  color: #c3cdb8;
+.login-brand-logo {
+  width: 1.9rem;
+  height: 1.9rem;
+  object-fit: contain;
+  filter: brightness(1.55);
 }
 
 .login-visual-text {

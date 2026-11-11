@@ -184,7 +184,7 @@ ol {
 
 .btn, .btn-edit, .btn-delete {
   border-radius: 20px;
-  display: inline-flex;
+  display: inline;
   align-items: center;
   gap: 0.6rem;
   padding: 0.5rem 1rem;

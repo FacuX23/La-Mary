@@ -1,5 +1,5 @@
 const PAGINAS_ADMIN = ["mascotas", "veterinarios", "turnos", "historia"];
-const PAGINA_DESPUES_DEL_LOGIN = "mascotas.html";
+const PAGINA_DESPUES_DEL_LOGIN = "panel.html";
 const PAGINA_LOGIN = "login.html";
 
 const haySesion = () => {

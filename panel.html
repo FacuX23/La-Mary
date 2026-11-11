@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <title>Veterinaria La Mary - Panel de Administración</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="./styles/global.css">
+    <link rel="stylesheet" href="./styles/paginas.css">
+    <link rel="stylesheet" href="./styles/styles-disables.css">
+
+    <script src="/scripts/auth.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container site-container">
+                <a href="./index.html" class="navbar-brand">
+                    <img src="./assets/img/logo-navbar.png" alt="Logo de Veterinaria La Mary" class="logo-sitio">
+                    <span class="navbar-brand-name">La Mary</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link" href="./index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="./panel.html">Panel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./mascotas.html">Mascotas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./veterinarios.html">Veterinarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./turnos.html">Turnos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./historiaclinica.html">Historia Clínica</a></li>
+                        <li class="nav-item solo-admin"><a class="navbar-login" href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="panel-principal">
+        <section class="container site-container">
+            <div class="panel-encabezado">
+                <span class="panel-etiqueta">ADMINISTRACIÓN</span>
+                <h1 class="panel-titulo">Panel</h1>
+                <p class="panel-subtitulo">Elegí qué querés administrar.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-panel h-100">
+                        <div class="tarjeta-panel-cuerpo">
+                            <div class="tarjeta-icono">
+                                <i class="fa-solid fa-paw"></i>
+                            </div>
+                            <h2 class="tarjeta-titulo">Mascotas</h2>
+                            <p class="tarjeta-texto">Registrá y gestioná las mascotas atendidas en la clínica.</p>
+                            <a href="./mascotas.html" class="tarjeta-enlace stretched-link">
+                                <span>Ir a Mascotas</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-panel h-100">
+                        <div class="tarjeta-panel-cuerpo">
+                            <div class="tarjeta-icono">
+                                <i class="fa-solid fa-stethoscope"></i>
+                            </div>
+                            <h2 class="tarjeta-titulo">Veterinarios</h2>
+                            <p class="tarjeta-texto">Administrá el equipo profesional y sus especialidades.</p>
+                            <a href="./veterinarios.html" class="tarjeta-enlace stretched-link">
+                                <span>Ir a Veterinarios</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-panel h-100">
+                        <div class="tarjeta-panel-cuerpo">
+                            <div class="tarjeta-icono">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <h2 class="tarjeta-titulo">Turnos</h2>
+                            <p class="tarjeta-texto">Gestioná y programá los turnos de atención para los pacientes.</p>
+                            <a href="./turnos.html" class="tarjeta-enlace stretched-link">
+                                <span>Ir a Turnos</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <article class="tarjeta-panel h-100">
+                        <div class="tarjeta-panel-cuerpo">
+                            <div class="tarjeta-icono">
+                                <i class="fa-solid fa-notes-medical"></i>
+                            </div>
+                            <h2 class="tarjeta-titulo">Historia Clínica</h2>
+                            <p class="tarjeta-texto">Consultá y registrá el historial médico completo de cada mascota.</p>
+                            <a href="./historiaclinica.html" class="tarjeta-enlace stretched-link">
+                                <span>Ir a Historia Clínica</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Veterinaria La Mary - Gestión de Turnos</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/styles-disables.css">
+
+    <script src="/scripts/auth.js"></script>
+</head>
+
+<body>
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container site-container">
+                <a href="index.html" class="navbar-brand">
+                    <img src="assets/img/logo-navbar.png" alt="Logo de Veterinaria La Mary" class="logo-sitio">
+                    <span class="navbar-brand-name">La Mary</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="panel.html">Panel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mascotas.html">Mascotas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="veterinarios.html">Veterinarios</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="turnos.html">Turnos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="historiaclinica.html">Historia Clínica</a></li>
+                        <li class="nav-item solo-admin"><a class="navbar-login" href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="py-5" style="padding-top: 90px;">
+        <div class="container">
+            <!-- Título de la Sección -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="h3 fw-bold text-center" style="font-family: var(--font-titulos);">Veterinaria La Mary - Gestión de Turnos</h1>
+                </div>
+            </div>
+
+            <!-- Fila principal dividida en dos columnas (Formulario y Tabla) -->
+            <div class="row g-4">
+                
+                <!-- COLUMNA IZQUIERDA: Formulario de Agendado -->
+                <div class="col-lg-5">
+                    <div class="card shadow-sm p-4 border-0">
+                        <h2 class="h5 mb-3 fw-bold" style="color: #213c04;">Agendar Nuevo Turno</h2>
+                        
+                        <form id="formTurno">
+                            <!-- Nombre del Dueño -->
+                            <div class="mb-3">
+                                <label for="nombreDueño" class="form-label">Nombre del Dueño</label>
+                                <input type="text" class="form-control" id="nombreDueño" placeholder="Ingrese nombre del dueño..." required>
+                            </div>
+
+                            <!-- Seleccionar Mascota -->
+                            <div class="mb-3">
+                                <label for="selectMascota" class="form-label">Seleccionar Mascota</label>
+                                <select class="form-select" id="selectMascota" required>
+                                    <!-- Texto de ejemplo visible inicialmente -->
+                                    <option value="" selected disabled>Ej: Lupita - Gata (o seleccione de la lista...)</option>
+                                </select>
+                            </div>
+
+                            <!-- Fecha y Hora (Select desplegable con intervalos de 20 min) -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="fechaTurno" class="form-label">Fecha</label>
+                                    <input type="date" class="form-control" id="fechaTurno" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="horaTurno" class="form-label">Hora (Turnos cada 20 min)</label>
+                                    <select class="form-select" id="horaTurno" required>
+                                        <option value="" selected disabled>Desplegar para elegir hora...</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Veterinario / Especialidad -->
+                            <div class="mb-3">
+                                <label for="selectVeterinario" class="form-label">Veterinario / Especialidad</label>
+                                <select class="form-select" id="selectVeterinario" required>
+                                    <option value="" selected disabled>Seleccione profesional...</option>
+                                    <!-- Se llenará dinámicamente desde el localStorage con los 6 profesionales -->
+                                </select>
+                            </div>
+
+                            <!-- Botones de Acción (Agendar y Cancelar Edición) -->
+                            <div class="d-grid gap-2">
+                                <button type="submit" id="btnGuardarTurno" class="btn btn-primary" style="background-color: #556238; border: none;">Agendar Turno</button>
+                                <button type="button" id="btnCancelarEdicion" class="btn btn-outline-secondary d-none">Cancelar Edición</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: Visualización de Agenda -->
+                <div class="col-lg-7">
+                    <div class="card shadow-sm p-4 border-0">
+                        <h2 class="h5 mb-3 fw-bold" style="color: #213c04;">Próximos Turnos</h2>
+                        
+                        <!-- Buscador -->
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="buscadorTurnos" placeholder="Buscar turno por dueño, mascota o veterinario...">
+                        </div>
+
+                        <!-- Tabla de Turnos -->
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="text-nowrap">Fecha y Hora</th>
+                                        <th class="text-nowrap">Mascota</th>
+                                        <th class="text-nowrap">Dueño</th>
+                                        <th class="text-nowrap">Veterinario</th>
+                                        <th class="text-center text-nowrap">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaTurnosBody">
+                                    <!-- JavaScript inyectará las filas aquí -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Notificación Toast -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+            <div id="toastTurno" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        ✔ Turno agendado exitosamente!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmación para cancelar un turno -->
+        <div class="modal fade" id="modalCancelarTurno" tabindex="-1" aria-labelledby="modalCancelarTurnoLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalCancelarTurnoLabel">Confirmar cancelación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que querés cancelar este turno? Esta acción no se puede deshacer.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-edit" data-bs-dismiss="modal">Volver</button>
+                        <button type="button" class="btn-delete" id="btnConfirmarCancelarTurno">Sí, cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/professional-modal.js"></script>
+    <script src="scripts/turnos.js"></script>
+</body>
+
+</html>

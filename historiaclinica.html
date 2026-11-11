@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <title>Veterinaria La Mary - Historia Clínica</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/styles-disables.css">
+</head>
+
+<body>
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container site-container">
+                <a href="index.html" class="navbar-brand">
+                    <img src="assets/img/logo-navbar.png" alt="Logo de Veterinaria La Mary" class="logo-sitio">
+                    <span class="navbar-brand-name">La Mary</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-3">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="panel.html">Panel</a></li>
+                        <li class="nav-item"><a class="nav-link" href="mascotas.html">Mascotas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="veterinarios.html">Veterinarios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="turnos.html">Turnos</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="historiaclinica.html">Historia Clínica</a></li>
+                        <li class="nav-item solo-admin"><a class="navbar-login" href="#" id="btn-cerrar-sesion">Cerrar sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="py-5" style="padding-top: 90px;">
+        <div class="container">
+            <!-- Título de la Sección -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="h3 fw-bold text-center" style="font-family: var(--font-titulos);">Veterinaria La Mary - Historias Clínicas</h1>
+                </div>
+            </div>
+            <!-- TARJETAS DE RESUMEN / MÉTRICAS -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0 p-3 text-center bg-light">
+                        <span class="text-muted small fw-bold">TOTAL DE FICHAS</span>
+                        <h3 class="fw-bold mb-0 text-success" id="statTotalFichas">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0 p-3 text-center bg-light">
+                        <span class="text-muted small fw-bold">PACIENTES ATENDIDOS</span>
+                        <h3 class="fw-bold mb-0 text-primary" id="statPacientesUnicos">0</h3>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card shadow-sm border-0 p-3 text-center bg-light">
+                        <span class="text-muted small fw-bold">ESTADO DE INTERNACIÓN</span>
+                        <h3 class="fw-bold mb-0 text-warning" id="statInternados">0 Activos</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila principal dividida en dos columnas (Formulario y Tabla) -->
+            <div class="row g-4">
+                
+                <!-- COLUMNA IZQUIERDA: Formulario de Registro Médico -->
+                <div class="col-lg-5">
+                    <div class="card shadow-sm p-4 border-0">
+                        <h2 class="h5 mb-3 fw-bold" style="color: #213c04;" id="tituloFormHC">Nueva Ficha Médica</h2>
+                        
+                        <form id="formHistoriaClinica">
+
+                            <!-- Seleccionar Mascota -->
+                            <div class="mb-3">
+                                <label for="selectMascotaHC" class="form-label">Paciente (Mascota)</label>
+                                <select class="form-select" id="selectMascotaHC" required>
+                                    <option value="" selected disabled>Seleccione una mascota...</option>
+                                </select>
+                            </div>
+
+                            <!-- Fecha de Atención -->
+                            <div class="mb-3">
+                                <label for="fechaAtencion" class="form-label">Fecha de Atención</label>
+                                <input type="date" class="form-control" id="fechaAtencion" required>
+                            </div>
+
+                            <!-- Diagnóstico / Motivo -->
+                            <div class="mb-3">
+                                <label for="diagnosticoHC" class="form-label">Diagnóstico / Motivo de Consulta</label>
+                                <textarea class="form-control" id="diagnosticoHC" rows="2" placeholder="Describa el diagnóstico..." required></textarea>
+                            </div>
+
+                            <!-- Tratamiento / Receta -->
+                            <div class="mb-3">
+                                <label for="tratamientoHC" class="form-label">Tratamiento / Medicación</label>
+                                <textarea class="form-control" id="tratamientoHC" rows="2" placeholder="Detalle el tratamiento..." required></textarea>
+                            </div>
+
+                            <!-- Veterinario Atendió -->
+                            <div class="mb-3">
+                                <label for="selectVeterinarioHC" class="form-label">Veterinario a Cargo</label>
+                                <select class="form-select" id="selectVeterinarioHC" required>
+                                    <option value="" selected disabled>Seleccione profesional...</option>
+                                </select>
+                            </div>
+
+                            <!-- Botones de Acción -->
+                            <div class="d-grid gap-2">
+                                <button type="submit" id="btnGuardarHC" class="btn btn-primary" style="background-color: #556238; border: none;">Guardar Ficha</button>
+                                <button type="button" id="btnCancelarEdicionHC" class="btn btn-outline-secondary d-none">Cancelar Edición</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: Visualización de Historias Clínicas -->
+                <div class="col-lg-7">
+                    <div class="card shadow-sm p-4 border-0">
+                        <h2 class="h5 mb-3 fw-bold" style="color: #213c04;">Registros Médicos</h2>
+                        
+                        <!-- Buscador -->
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="buscadorHC" placeholder="Buscar por mascota, diagnóstico o veterinario...">
+                        </div>
+
+                        <!-- Tabla de Historias Clínicas -->
+                        <div class="table-responsive">
+                            <table class="table table-striped align-middle">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th class="text-nowrap">Fecha</th>
+                                        <th class="text-nowrap">Paciente</th>
+                                        <th class="text-nowrap">Diagnóstico</th>
+                                        <th class="text-nowrap">Veterinario</th>
+                                        <th class="text-center text-nowrap">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaHCBody">
+                                    
+                                    <!-- Inyectado por JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Notificación Toast -->
+        <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+            <div id="toastHC" class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        ✔ Ficha médica guardada exitosamente!
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de confirmación para eliminar una historia clínica -->
+        <div class="modal fade" id="modalEliminarHC" tabindex="-1" aria-labelledby="modalEliminarHCLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalEliminarHCLabel">Confirmar eliminación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que querés eliminar esta historia clínica? Esta acción no se puede deshacer.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-edit" data-bs-dismiss="modal">Volver</button>
+                        <button type="button" class="btn-delete" id="btnConfirmarEliminarHC">Sí, eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/professional-modal.js"></script>
+    <script src="scripts/historiaclinica.js"></script>
+</body>
+
+</html>

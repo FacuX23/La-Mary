@@ -90,3 +90,150 @@
 .contacto-info .card {
     background: var(--bg-card, #f3f0ea);
 }
+
+/* PANEL DE ADMINISTRACIÓN */
+
+.panel-principal {
+    min-height: calc(100vh - 80px);
+    padding-top: 130px;
+    padding-bottom: 90px;
+    background-color: var(--bg-page);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.panel-etiqueta {
+    display: block;
+    font-family: var(--font-parrafo);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-hover, #6b7a5f);
+    margin-bottom: 0.35rem;
+}
+
+.panel-titulo {
+    font-family: var(--font-titulos);
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+}
+
+.panel-subtitulo {
+    font-family: var(--font-parrafo);
+    font-size: 1.15rem;
+    color: var(--text-light);
+    margin-bottom: 2.75rem;
+}
+
+.tarjeta-panel {
+    position: relative;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #ebe8df;
+    border-radius: 20px;
+    padding: 2.5rem 2.25rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarjeta-panel a {
+    text-decoration: none;
+}
+
+.tarjeta-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    border-color: #dcd7c9;
+    border-radius: 25px;
+}
+
+.tarjeta-panel-cuerpo {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tarjeta-icono {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #eeebe3;
+    color: #556238;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    margin-bottom: 1.75rem;
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    will-change: transform;
+}
+
+.tarjeta-panel:hover .tarjeta-icono {
+    transform: scale(1.06);
+    background-color: #e5e1d5;
+}
+
+.tarjeta-titulo {
+    font-family: var(--font-titulos);
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.65rem;
+}
+
+.tarjeta-texto {
+    font-family: var(--font-parrafo);
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin-bottom: 2.25rem;
+    flex-grow: 1;
+}
+
+.tarjeta-enlace {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-parrafo);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #556238;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tarjeta-enlace i {
+    font-size: 0.9rem;
+    transition: transform 0.25s ease;
+}
+
+.tarjeta-panel:hover .tarjeta-enlace {
+    color: #3f4a27;
+}
+
+.tarjeta-panel:hover .tarjeta-enlace i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .panel-principal {
+        padding-top: 110px;
+        padding-bottom: 60px;
+    }
+
+    .tarjeta-panel {
+        padding: 2rem 1.5rem;
+    }
+
+    .panel-subtitulo {
+        margin-bottom: 2rem;
+    }
+}
