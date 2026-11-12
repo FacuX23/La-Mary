@@ -1,0 +1,105 @@
+.modal-backdrop {
+  background-color: rgba(28, 32, 24, 0.6);
+  -webkit-backdrop-filter: blur(0) saturate(100%);
+  backdrop-filter: blur(0) saturate(100%);
+  transition:
+    opacity 0.15s ease,
+    -webkit-backdrop-filter 0.15s ease,
+    backdrop-filter 0.15s ease;
+}
+
+.modal-backdrop.show {
+  opacity: 1;
+  -webkit-backdrop-filter: blur(7px) saturate(125%);
+  backdrop-filter: blur(7px) saturate(125%);
+}
+
+.modal.fade .modal-dialog {
+  transform: perspective(1400px) translate3d(0, 34px, 0) rotateX(-14deg) scale(0.88);
+  transform-origin: 50% 30%;
+  filter: blur(4px);
+  will-change: transform, filter;
+  transition:
+    transform 0.3s cubic-bezier(0.5, 0, 0.85, 0.35),
+    filter 0.25s ease-in;
+}
+
+.modal.show .modal-dialog {
+  transform: perspective(1400px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+  filter: blur(0);
+  transition:
+    transform 0.52s cubic-bezier(0.16, 1.3, 0.3, 1),
+    filter 0.28s ease-out;
+}
+
+.modal.fade {
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(42, 39, 35, 0.08);
+  transition: box-shadow 0.5s ease 0.08s;
+}
+
+.modal.show .modal-content {
+  box-shadow:
+    0 32px 64px -20px rgba(28, 32, 24, 0.45),
+    0 12px 28px -14px rgba(28, 32, 24, 0.35);
+}
+
+.modal.show .modal-content::before {
+  animation: modal-barra 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.1) 0.04s both;
+}
+
+.modal.show .modal-title,
+.modal.show .modal-body,
+.modal.show .modal-footer,
+.modal.show .btn-close {
+  animation: modal-contenido 0.42s cubic-bezier(0.2, 0.85, 0.3, 1.15) both;
+}
+
+.modal.show .modal-title  { animation-delay: 0.05s; }
+.modal.show .modal-body   { animation-delay: 0.11s; }
+.modal.show .modal-footer { animation-delay: 0.17s; }
+.modal.show .btn-close    { animation-delay: 0.09s; }
+
+@keyframes modal-barra {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes modal-destello {
+  0%   { opacity: 0; transform: translateX(-45%); }
+  25%  { opacity: 0.9; }
+  60%  { opacity: 0.45; }
+  100% { opacity: 0; transform: translateX(45%); }
+}
+
+@keyframes modal-contenido {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .modal-backdrop,
+  .modal.fade,
+  .modal.fade .modal-dialog,
+  .modal.show .modal-dialog,
+  .modal-content,
+  .modal.show .modal-title,
+  .modal.show .modal-body,
+  .modal.show .modal-footer,
+  .modal.show .btn-close {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+
+  .modal.fade .modal-dialog {
+    filter: none;
+  }
+}
