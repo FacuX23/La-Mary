@@ -94,3 +94,9 @@
 .nav-link.active {
   font-size: 1rem !important;
 }
+
+.table-responsive {
+  border-radius: 10px;
+  overflow-x: auto;          /* en vez de overflow: hidden */
+  -webkit-overflow-scrolling: touch;
+}

@@ -4,7 +4,7 @@ const PAGINA_LOGIN = "login.html";
 
 const haySesion = () => {
     return sessionStorage.getItem("token") !== null;
-}
+}   
 
 const estiloSesion = document.createElement("style");
 estiloSesion.textContent = `html:not(.con-sesion) .solo-admin { display: none !important; } html.con-sesion .solo-visitante { display: none !important; }`;

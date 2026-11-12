@@ -62,7 +62,7 @@ function actualizarEstadisticasHC(registros) {
         r.tratamiento.toLowerCase().includes("intern")
     ).length;
 
-    if (elInternados) elInternados.textContent = `${internados} Pacientes`;
+    if (elInternados) elInternados.innerHTML = `${internados} <span style="font-size: 1.3rem !important; color: var(--bs-secondary-color) !important;">Pacientes</span>`;
 }
 
 // Cargar selects en el formulario

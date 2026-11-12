@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/variables.css">
     <link rel="stylesheet" href="styles/styles-disables.css">
+
+    <script src="scripts/auth.js"></script>
 </head>
 
 <body>
@@ -44,32 +46,35 @@
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="py-5" style="padding-top: 90px;">
-        <div class="container">
+    <main style="padding-top: 90px;">
+        <div class="container my-5">
             <!-- Título de la Sección -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h1 class="h3 fw-bold text-center" style="font-family: var(--font-titulos);">Veterinaria La Mary - Historias Clínicas</h1>
-                </div>
-            </div>
+            <h1 class="text-center mb-4" style="font-family: var(--font-titulos);">Historias Clínicas</h1>
             <!-- TARJETAS DE RESUMEN / MÉTRICAS -->
             <div class="row g-3 mb-4">
                 <div class="col-md-4">
-                    <div class="card shadow-sm border-0 p-3 text-center bg-light">
-                        <span class="text-muted small fw-bold">TOTAL DE FICHAS</span>
-                        <h3 class="fw-bold mb-0 text-success" id="statTotalFichas">0</h3>
+                    <div class="card shadow-sm border-0 p-3 text-start bg-light">
+                        <span class="d-flex align-items-center justify-content-between">
+                            TOTAL DE FICHAS
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#63B680"><path d="M5,21q-0.83,0-1.41-0.59T3,19V5Q3,4.17 3.59,3.59T5,3H19q0.83,0 1.41,0.59T21,5V19q0,0.82-0.59,1.41T19,21H5Zm0-2H19V5H5V19ZM5,5V19V5ZM8,17h5q0.43,0 0.71-0.29Q14,16.43 14,16t-0.29-0.71T13,15H8q-0.42,0-0.71,0.29T7,16t0.29,0.71T8,17Zm0-4h8q0.43,0 0.71-0.29Q17,12.43 17,12t-0.29-0.71T16,11H8q-0.42,0-0.71,0.29T7,12t0.29,0.71T8,13ZM8,9h8q0.43,0 0.71-0.29T17,8q0-0.43-0.29-0.71T16,7H8Q7.58,7 7.29,7.29T7,8Q7,8.42 7.29,8.71T8,9Z"/></svg>
+                        </span>
+                        <h3 class="fw-bold mb-0" id="statTotalFichas">0</h3>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow-sm border-0 p-3 text-center bg-light">
-                        <span class="text-muted small fw-bold">PACIENTES ATENDIDOS</span>
-                        <h3 class="fw-bold mb-0 text-primary" id="statPacientesUnicos">0</h3>
+                    <div class="card shadow-sm border-0 p-3 text-left bg-light">
+                        <span class="text-muted small fw-bold">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#6889DF"><path d="M13.88,13.13Q13,12.25 13,11t0.88-2.13T16,8t2.13,0.88T19,11t-0.88,2.13T16,14t-2.13-0.88ZM11,20q-0.42,0-0.71-0.29Q10,19.43 10,19V18.1q0-0.53 0.25-1t0.7-0.75q1.13-0.68 2.39-1.01T16,15t2.66,0.34t2.39,1.01q0.45,0.27 0.7,0.75t0.25,1V19q0,0.43-0.29,0.71T21,20H11Zm1.15-2h7.7Q18.98,17.5 18,17.25Q17.03,17 16,17q-1.02,0-2,0.25Q13.03,17.5 12.15,18Zm4.56-6.29Q17,11.43 17,11t-0.29-0.71T16,10t-0.71,0.29T15,11t0.29,0.71T16,12q0.43,0 0.71-0.29ZM16,11Zm0,7Zm-6-4H4q-0.42,0-0.71-0.29Q3,13.43 3,13t0.29-0.71T4,12h6q0.43,0 0.71,0.29T11,13t-0.29,0.71T10,14Zm4-8H4Q3.58,6 3.29,5.71Q3,5.43 3,5T3.29,4.29T4,4H14q0.43,0 0.71,0.29T15,5T14.71,5.71T14,6Zm-2.9,4H4Q3.58,10 3.29,9.71T3,9Q3,8.57 3.29,8.29T4,8h8q-0.35,0.42-0.56,0.92T11.1,10Z"/></svg>
+                            PACIENTES ATENDIDOS</span>
+                        <h3 class="fw-bold mb-0" id="statPacientesUnicos">0</h3>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card shadow-sm border-0 p-3 text-center bg-light">
-                        <span class="text-muted small fw-bold">ESTADO DE INTERNACIÓN</span>
-                        <h3 class="fw-bold mb-0 text-warning" id="statInternados">0 Activos</h3>
+                    <div class="card shadow-sm border-0 p-3 text-left bg-light">
+                        <span class="text-muted small fw-bold">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="24px" width="24px" fill="#DFB44B"><path d="M4.85,22V12.13h2V20h7V15.18l2.63-2.63q0.72-0.72 1.13-1.63T18,9q0-1-0.41-1.9T16.48,5.47L15.85,4.82L12.68,8h-4L7.6,9.07L6.18,7.68L7.85,6h4l4-4L17.9,4.05q1,1 1.55,2.26T20,9t-0.55,2.69T17.9,13.95L15.85,16v6h-11Zm4.93-4.68l-5.2-5.2Q4.3,11.85 4.15,11.48T4,10.7T4.15,9.94Q4.3,9.57 4.58,9.3l2.1-2.12l3.1,3.07q0.7,0.7 1.09,1.61t0.39,1.91q0,1-0.38,1.91t-1.1,1.64Z"/></svg>
+                            ESTADO DE INTERNACIÓN</span>
+                        <h3 class="fw-bold mb-0" id="statInternados">0 <span class="small">Pacientes</span></h3>
                     </div>
                 </div>
             </div>
